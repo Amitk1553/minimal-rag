@@ -1,0 +1,16 @@
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: minimal-rag-db
+    environment:
+      POSTGRES_DB: ragdb
+      POSTGRES_USER: raguser
+      POSTGRES_PASSWORD: ragpassword
+    ports:
+      - "5433:5432"
+    volumes:
+      - rag_data:/var/lib/postgresql/data
+
+volumes:
+  rag_data:
